@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	12.6.8
+Version:	12.7.0
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
@@ -35,15 +35,15 @@ EOF
 %build
 # build the standard version and test it
 %{__sed} -e 's/-O /%{optflags} /' makefile > makefile.opt
-%make CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name} -f makefile.opt
-%make CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name} -f makefile.opt check
+%{make} CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name} -f makefile.opt
+%{make} CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name} -f makefile.opt check
 
 # build the secure version
 cd %{name}_secure
 %{__ln_s} ../%{name}.1 .
 %{__ln_s} ../doc .
 %{__sed} -e 's/-O /%{optflags} -DSECURE -DTIMEOUT_SECONDS=3600 /' makefile > makefile.secure
-%make CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name}_secure -f makefile.secure
+%{make} CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name}_secure -f makefile.secure
 cd ..
 
 %install
