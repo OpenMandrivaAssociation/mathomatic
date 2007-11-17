@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	12.7.9
+Version:	12.8.0
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
@@ -62,10 +62,9 @@ cd ..
 %{__rm} -rf %{buildroot}
 
 %files
-%defattr(-, root, root)
+%defattr(0644,root,root,0755)
 %doc changes.txt COPYING README.txt VERSION doc/ tests/
+%defattr(-,root,root)
 %{_bindir}/%{name}
 %{_bindir}/%{name}_secure
 %{_mandir}/man1/mathomatic.1*
-
-
