@@ -9,6 +9,7 @@ License:	LGPL
 Group:		Sciences/Mathematics
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
+BuildRequires:  desktop-file-utils
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
