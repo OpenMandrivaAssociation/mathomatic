@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	12.8.0
+Version:	12.8.2
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
@@ -7,6 +7,8 @@ URL:		http://mathomatic.orgserve.de/math/
 Source0:	http://www.panix.com/~gesslein/mathomatic-%{version}.tar.bz2
 License:	LGPL
 Group:		Sciences/Mathematics
+Requires(post): desktop-file-utils
+Requires(postun): desktop-file-utils
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
@@ -58,6 +60,14 @@ cd %{name}_secure
 %{__install} -m 755 %{name}_secure %{buildroot}%{_bindir}/%{name}_secure
 cd ..
 
+%{_bindir}/desktop-file-validate %{buildroot}%{_datadir}/applications/mathomatic.desktop
+
+%post
+%{update_desktop_database}
+
+%postun
+%{clean_desktop_database}
+
 %clean
 %{__rm} -rf %{buildroot}
 
@@ -68,3 +78,5 @@ cd ..
 %{_bindir}/%{name}
 %{_bindir}/%{name}_secure
 %{_mandir}/man1/mathomatic.1*
+%{_datadir}/applications/mathomatic.desktop
+%{_datadir}/pixmaps/mathomatic.png
