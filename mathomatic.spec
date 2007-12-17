@@ -12,7 +12,6 @@ Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 Mathomatic is a portable, general purpose CAS (Computer Algebra System) 
