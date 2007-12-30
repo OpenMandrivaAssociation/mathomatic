@@ -44,6 +44,7 @@ EOF
 cd %{name}_secure
 %{__ln_s} ../%{name}.1 .
 %{__ln_s} ../doc .
+%{__ln_s} ../primes .
 %{__sed} -e 's/-O /%{optflags} -DSECURE -DTIMEOUT_SECONDS=3600 /' makefile > makefile.secure
 %{make} CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name}_secure -f makefile.secure
 cd ..
