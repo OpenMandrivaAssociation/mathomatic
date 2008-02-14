@@ -7,6 +7,7 @@ URL:		http://mathomatic.orgserve.de/math/
 Source0:	http://www.panix.com/~gesslein/mathomatic-%{version}.tar.bz2
 License:	LGPL
 Group:		Sciences/Mathematics
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
