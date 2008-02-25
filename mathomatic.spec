@@ -1,11 +1,11 @@
 Name:		mathomatic
-Version:	12.8.6
+Version:	12.8.8
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
 URL:		http://mathomatic.orgserve.de/math/
 Source0:	http://www.panix.com/~gesslein/mathomatic-%{version}.tar.bz2
-License:	LGPL
+License:	LGPLv2
 Group:		Sciences/Mathematics
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires(post): desktop-file-utils
@@ -75,7 +75,7 @@ cd ..
 
 %files
 %defattr(0644,root,root,0755)
-%doc changes.txt COPYING README.txt VERSION doc/ tests/
+%doc changes.txt README.txt VERSION doc/ tests/
 %defattr(-,root,root)
 %{_bindir}/%{name}
 %{_bindir}/%{name}_secure
