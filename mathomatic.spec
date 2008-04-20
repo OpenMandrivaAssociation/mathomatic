@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	12.8.8
+Version:	12.9.2
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
