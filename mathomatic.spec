@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	14.0.2
+Version:	14.1.0
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
@@ -7,12 +7,12 @@ URL:		http://mathomatic.orgserve.de/math/
 Source0:	http://www.panix.com/~gesslein/mathomatic-%{version}.tar.bz2
 License:	LGPLv2
 Group:		Sciences/Mathematics
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 Mathomatic is a portable, general purpose CAS (Computer Algebra System) 
