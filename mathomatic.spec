@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	14.2.8
+Version:	14.3.0
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
@@ -15,12 +15,12 @@ BuildRequires:	readline-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
-Mathomatic is a portable, general purpose CAS (Computer Algebra System) 
-written entirely in C. It is free software (GNU LGPL license). This is a 
-console mode application and library that easily compiles and runs under 
-any operating system with a C compiler. There are no dependencies other 
-than the standard C libraries. Mathomatic has been under development 
-since 1986 and now stands at 16,000 lines of highly efficient code. The 
+Mathomatic is a portable, general purpose CAS (Computer Algebra System)
+written entirely in C. It is free software (GNU LGPL license). This is a
+console mode application and library that easily compiles and runs under
+any operating system with a C compiler. There are no dependencies other
+than the standard C libraries. Mathomatic has been under development
+since 1986 and now stands at 16,000 lines of highly efficient code. The
 author is George Gesslein II.
 
 %prep
