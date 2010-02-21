@@ -36,12 +36,9 @@ EOF
 %{__cp} -a *.[ch] makefile VERSION %{name}_secure
 
 %build
-# build the standard version and test it
 %{__sed} -e 's/-O /%{optflags} /' makefile > makefile.opt
 %{make} CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name} -f makefile.opt
 %{make} CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name} -f makefile.opt check
-
-# build the secure version
 cd %{name}_secure
 %{__ln_s} ../%{name}.1 .
 %{__ln_s} ../doc .
@@ -53,15 +50,11 @@ cd ..
 %install
 %{__rm} -rf %{buildroot}
 %makeinstall docdir=%{buildroot}%{_docdir}/%{name}
-# remove the installed docs since these are picked up in %%doc already
 %{__rm} -rf %{buildroot}%{_docdir}/%{name}
-# remove manual since its installed already
 %{__rm} -rf doc/%{name}.1
-# install the secure binary
 cd %{name}_secure
 %{__install} -m 755 %{name}_secure %{buildroot}%{_bindir}/%{name}_secure
 cd ..
-
 %{_bindir}/desktop-file-validate %{buildroot}%{_datadir}/applications/mathomatic.desktop
 
 %post
