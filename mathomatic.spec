@@ -1,10 +1,10 @@
 Name:		mathomatic
-Version:	15.0.5
+Version:	15.0.6
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
 URL:		http://mathomatic.orgserve.de/math/
-Source0:	http://www.panix.com/~gesslein/mathomatic-%{version}.tar.bz2
+Source0:	http://www.panix.com/~gesslein/%{name}-%{version}.tar.bz2
 License:	LGPLv2
 Group:		Sciences/Mathematics
 Requires(post): desktop-file-utils
