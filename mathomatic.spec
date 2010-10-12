@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	15.2.2
+Version:	15.3.0
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
@@ -75,3 +75,4 @@ cd ..
 %{_mandir}/man1/mathomatic.1*
 %{_datadir}/applications/mathomatic.desktop
 %{_datadir}/pixmaps/mathomatic.png
+%{_datadir}/pixmaps/mathomatic.xpm
