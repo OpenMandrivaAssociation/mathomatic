@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	15.3.1
+Version:	15.3.4
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
@@ -36,15 +36,15 @@ EOF
 %{__cp} -a *.[ch] makefile VERSION %{name}_secure
 
 %build
-%{__sed} -e 's/-O /%{optflags} /' makefile > makefile.opt
-%{make} CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name} -f makefile.opt
-%{make} CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name} -f makefile.opt check
+%{__sed} -e 's/-O3 /%{optflags} /' makefile > makefile.opt
+%{make} CC=%{__cc} READLINE=1 LDFLAGS="%{ldflags}" AOUT=%{name} -f makefile.opt
+%{make} CC=%{__cc} READLINE=1 LDFLAGS="%{ldflags}" AOUT=%{name} -f makefile.opt check
 cd %{name}_secure
 %{__ln_s} ../%{name}.1 .
 %{__ln_s} ../doc .
 %{__ln_s} ../primes .
-%{__sed} -e 's/-O /%{optflags} -DSECURE -DTIMEOUT_SECONDS=3600 /' makefile > makefile.secure
-%{make} CC=%{__cc} READLINE=1 LDFLAGS= AOUT=%{name}_secure -f makefile.secure
+%{__sed} -e 's/-O3 /%{optflags} -DSECURE -DTIMEOUT_SECONDS=3600 /' makefile > makefile.secure
+%{make} CC=%{__cc} READLINE=1 LDFLAGS="%{ldflags}" AOUT=%{name}_secure -f makefile.secure
 cd ..
 
 %install
