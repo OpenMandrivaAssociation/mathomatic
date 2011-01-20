@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	15.3.7
+Version:	15.4.0
 Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
@@ -56,13 +56,6 @@ cd %{name}_secure
 %{__install} -m 755 %{name}_secure %{buildroot}%{_bindir}/%{name}_secure
 cd ..
 %{_bindir}/desktop-file-validate %{buildroot}%{_datadir}/applications/mathomatic.desktop
-
-%post
-%{update_desktop_database}
-
-%postun
-%{clean_desktop_database}
-
 %clean
 %{__rm} -rf %{buildroot}
 
