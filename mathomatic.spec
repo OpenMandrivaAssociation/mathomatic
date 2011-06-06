@@ -41,6 +41,7 @@ EOF
 %{make} CC=%{__cc} READLINE=1 LDFLAGS="%{ldflags}" AOUT=%{name} -f makefile.opt check
 cd %{name}_secure
 %{__ln_s} ../%{name}.1 .
+%{__ln_s} ../rmath.1 .
 %{__ln_s} ../doc .
 %{__ln_s} ../primes .
 %{__sed} -e 's/-O3 /%{optflags} -DSECURE -DTIMEOUT_SECONDS=3600 /' makefile > makefile.secure
