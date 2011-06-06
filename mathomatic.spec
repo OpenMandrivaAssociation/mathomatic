@@ -1,6 +1,6 @@
 Name:		mathomatic
-Version:	15.4.3
-Release:	%mkrel 2
+Version:	15.6.1
+Release:	%mkrel 1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
 URL:		http://mathomatic.orgserve.de/math/
