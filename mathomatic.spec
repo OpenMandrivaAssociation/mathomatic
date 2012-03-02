@@ -1,6 +1,6 @@
 Name:		mathomatic
-Version:	15.7.2
-Release:	%mkrel 1
+Version:	15.8.0
+Release:	1
 Epoch:		0
 Summary: 	General purpose CAS (Computer Algebra System)
 URL:		http://mathomatic.orgserve.de/math/
@@ -12,7 +12,6 @@ Requires(postun): desktop-file-utils
 BuildRequires:	desktop-file-utils
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 Mathomatic is a portable, general purpose CAS (Computer Algebra System)
@@ -49,7 +48,6 @@ cd %{name}_secure
 cd ..
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall docdir=%{buildroot}%{_docdir}/%{name}
 %__rm -rf %{buildroot}%{_docdir}/%{name}
 %__rm -rf doc/%{name}.1
@@ -57,8 +55,6 @@ cd %{name}_secure
 %__install -m 755 %{name}_secure %{buildroot}%{_bindir}/%{name}_secure
 cd ..
 %{_bindir}/desktop-file-validate %{buildroot}%{_datadir}/applications/mathomatic.desktop
-%clean
-%__rm -rf %{buildroot}
 
 %files
 %defattr(0644,root,root,0755)
