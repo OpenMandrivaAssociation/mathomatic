@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	15.8.2
+Version:	15.8.4
 Release:	1
 Summary:	General purpose CAS (Computer Algebra System)
 URL:		http://mathomatic.org/
@@ -34,17 +34,17 @@ EOF
 %__cp -a *.[ch] makefile VERSION %{name}_secure
 
 %build
-%__sed -e 's/-O3 /%{optflags} /' makefile > makefile.opt
-%make CC=%{__cc} READLINE=1 LDFLAGS="%{ldflags}" AOUT=%{name} -f makefile.opt
-%make CC=%{__cc} READLINE=1 LDFLAGS="%{ldflags}" AOUT=%{name} -f makefile.opt check
-cd %{name}_secure
+%make CC=%{__cc} CC_OPTIMIZE="%{optflags}" READLINE=1 LDFLAGS="%{ldflags}" AOUT=%{name}
+pushd %{name}_secure
 %__ln_s ../%{name}.1 .
 %__ln_s ../rmath.1 .
 %__ln_s ../doc .
 %__ln_s ../primes .
-%__sed -e 's/-O3 /%{optflags} -DSECURE -DTIMEOUT_SECONDS=3600 /' makefile > makefile.secure
-%make CC=%{__cc} READLINE=1 LDFLAGS="%{ldflags}" AOUT=%{name}_secure -f makefile.secure
-cd ..
+%make CC=%{__cc} CC_OPTIMIZE="%{optflags}" READLINE=1 LDFLAGS="%{ldflags}" AOUT=%{name}_secure %{name}_secure
+popd
+
+%check
+%make CC=%{__cc} CC_OPTIMIZE="%{optflags}" READLINE=1 LDFLAGS="%{ldflags}" AOUT=%{name} check
 
 %install
 %makeinstall docdir=%{buildroot}%{_docdir}/%{name}
@@ -57,7 +57,7 @@ cd ..
 
 %files
 %defattr(0644,root,root,0755)
-%doc changes.txt README.txt VERSION doc/ tests/
+%doc NEWS README.txt VERSION doc/ tests/
 %defattr(-,root,root)
 %{_bindir}/%{name}
 %{_bindir}/%{name}_secure
