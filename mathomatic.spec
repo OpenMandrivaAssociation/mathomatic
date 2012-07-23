@@ -1,13 +1,11 @@
 Name:		mathomatic
-Version:	16.0.0
+Version:	16.0.1
 Release:	1
 Summary:	General purpose CAS (Computer Algebra System)
 URL:		http://mathomatic.org/
 Source0:	http://mathomatic.org/%{name}-%{version}.tar.bz2
 License:	LGPLv2
 Group:		Sciences/Mathematics
-Requires(post):	desktop-file-utils
-Requires(postun): desktop-file-utils
 BuildRequires:	desktop-file-utils
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
