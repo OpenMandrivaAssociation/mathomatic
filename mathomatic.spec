@@ -1,5 +1,5 @@
 Name:		mathomatic
-Version:	16.0.1
+Version:	16.0.2
 Release:	1
 Summary:	General purpose CAS (Computer Algebra System)
 URL:		http://mathomatic.org/
